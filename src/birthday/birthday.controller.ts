@@ -7,6 +7,10 @@ export class BirthdayController {
         try{
             const today = new Date();
             const nextBirthday = new Date(birthdate);
+            if (isNaN(nextBirthday.getTime())) {
+                throw new Error('Formato de fecha invalido');
+            }
+
             nextBirthday.setFullYear(today.getFullYear());
 
             if (nextBirthday < today) {
@@ -17,7 +21,7 @@ export class BirthdayController {
 
             return `Faltan ${daysRemaining} dias para su cumpleaños.`;
         }catch(error){
-            throw new Error(`Error al calcular los dias de cumpleaños: ${error.message}`);
+            throw new Error(`Error al calcular los dias de cumpleaños`);
         }
     }
 }

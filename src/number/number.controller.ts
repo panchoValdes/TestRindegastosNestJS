@@ -6,11 +6,11 @@ export class NumberController {
     getTheNumber(@Query('first') first: number, @Query('second') second: number): string {
         try{
             if (second <= 0) {
-            return 'El segundo número debe ser mayor que cero';
+                return 'El segundo numero debe ser mayor que cero';
             }
             let product = '';
             for (let i = 1; i <= second; i++) {
-            product += first * i;
+                product += first * i;
             }
     
             return product.toString();
